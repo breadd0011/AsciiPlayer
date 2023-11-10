@@ -29,7 +29,6 @@ namespace AsciiPlayer.Dictionaries
 			{ ".jpg", true },
 			{ ".jpeg", true },
 			{ ".png", true },
-			{ ".gif", true },
 			{ ".bmp", true },
 			{ ".tif", true },
 			{ ".tiff", true },
