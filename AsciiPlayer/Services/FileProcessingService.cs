@@ -114,7 +114,7 @@ namespace AsciiPlayer.Services
 		{
 			using(var streamReader = new StreamReader(txtPath))
 			{
-				streamReader.ReadLine(); // to skip first blank line
+				streamReader.ReadLine(); // to skip first empty line
 
 				return streamReader.ReadToEnd();
 			}
