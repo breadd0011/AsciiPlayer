@@ -111,15 +111,7 @@ namespace AsciiPlayer
 
 			filePath = Console.ReadLine();
 
-			if (filePath == null)
-			{
-				Console.WriteLine("Incorrect input, press any key and try again. (Make sure your file and path had no spaces in their name!)");
-				Console.ReadKey();
-				Console.Clear();
-				return;
-			}
-
-			if (!File.Exists(filePath))
+			if (filePath == null || !File.Exists(filePath))
 			{
 				Console.WriteLine("Incorrect input, press any key and try again. (Make sure your file and path had no spaces in their name!)");
 				Console.ReadKey();
