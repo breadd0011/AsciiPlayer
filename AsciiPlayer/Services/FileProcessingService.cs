@@ -19,7 +19,7 @@ namespace AsciiPlayer.Services
 		public static FileProcessingService Instance { get { return lazy.Value; } }
 		private FileProcessingService() { }
 
-		public string[] asciiChars = { "@", "B", "%", "8", "W", "M", "#", "*", "o", ":", ".", " " };
+		public string[] asciiChars = { "@", "B", "%", "8", "W", "M", "#", "*", "o", ":", ".", " ", " " };
 
 		public void WriteVideoToTxtFiles(string vidPath, string tempTxtPath)
 		{
