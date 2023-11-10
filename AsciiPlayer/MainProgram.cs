@@ -11,8 +11,8 @@ namespace AsciiPlayer
 	public class MainProgram
 	{
 		public static string tempPath = Path.Combine(Directory.GetCurrentDirectory(), "Temp");
-		public static string temptxtPath = Path.Combine(Directory.GetCurrentDirectory(), @"Temp\txts");
-		public static string filePath;
+		public static string temptxtPath = Path.Combine(Directory.GetCurrentDirectory(), @"temp\txts");
+		public static string? filePath;
 		public static string audioPath = Path.Combine(tempPath, "audio.mp3");
 
 		private static Timer timer;
