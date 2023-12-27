@@ -51,8 +51,8 @@ namespace AsciiPlayer
 		}
 		private static void PlayVideo()
 		{
-			FileProcessingService.Instance.ExtractAudioFromVideo(filePath, audioPath);
-			FileProcessingService.Instance.WriteVideoToTxtFiles(filePath, temptxtPath);
+			FileProcessingService.ExtractAudioFromVideo(filePath, audioPath);
+			FileProcessingService.WriteVideoToTxtFiles(filePath, temptxtPath);
 			temptxtPathFileLength = Directory.GetFiles(temptxtPath).Length;
 
 			using(var waveOut = new WaveOutEvent())
@@ -61,7 +61,7 @@ namespace AsciiPlayer
 				{
 					waveOut.Init(audioFile);
 					waveOut.Play();
-					timer = new Timer(DisplayNextFrame, null, 0, FileProcessingService.Instance.GetIntervalBetweenFrames(filePath));
+					timer = new Timer(DisplayNextFrame, null, 0, FileProcessingService.GetIntervalBetweenFrames(filePath));
 					Console.ReadLine();
 				}
 			
@@ -71,15 +71,15 @@ namespace AsciiPlayer
 
 		private static void DisplayImage()
 		{
-			FileProcessingService.Instance.WriteImageToTxtFile(filePath, temptxtPath);
-			string text = FileProcessingService.Instance.ReadTextFromTxt(temptxtPath + @"\temp.txt");
+			FileProcessingService.WriteImageToTxtFile(filePath, temptxtPath);
+			string text = FileProcessingService.ReadTextFromTxt(temptxtPath + @"\temp.txt");
 			Console.WriteLine(text);
 			Console.ReadLine();
 		}
 		private static void DisplayNextFrame(object? state)
 		{
 			string txtPath = Path.Combine(temptxtPath, $"{frameIndex}.txt");
-			string text = FileProcessingService.Instance.ReadTextFromTxt(txtPath);
+			string text = FileProcessingService.ReadTextFromTxt(txtPath);
 			Console.SetCursorPosition(0, 0);
 			Console.Write(text);
 

@@ -13,15 +13,15 @@ using System.Diagnostics;
 
 namespace AsciiPlayer.Services
 {
-	public class FileProcessingService
+	public static class FileProcessingService
 	{
-		private static readonly Lazy<FileProcessingService> lazy = new(() => new());
-		public static FileProcessingService Instance { get { return lazy.Value; } }
-		private FileProcessingService() { }
+		//private static readonly Lazy<FileProcessingService> lazy = new(() => new());
+		//public static FileProcessingService Instance { get { return lazy.Value; } }
+		//private FileProcessingService() { }
 
-		public string[] asciiChars = { "@", "B", "%", "8", "W", "M", "#", "*", "o", ":", ".", " ", " " };
+		private static string[] asciiChars = { "@", "B", "%", "8", "W", "M", "#", "*", "o", ":", ".", " ", " " };
 
-		public void WriteVideoToTxtFiles(string vidPath, string tempTxtPath)
+		public static void WriteVideoToTxtFiles(string vidPath, string tempTxtPath)
 		{
 			using (VideoCapture capture = new VideoCapture(vidPath))
 			{
@@ -74,7 +74,7 @@ namespace AsciiPlayer.Services
 			}
 		}
 
-		public void WriteImageToTxtFile(string imgPath, string tempTxtPath)
+		public static void WriteImageToTxtFile(string imgPath, string tempTxtPath)
 		{
 			Mat img = Cv2.ImRead(imgPath);
 			int asciiLength = asciiChars.Length - 1;
@@ -110,7 +110,7 @@ namespace AsciiPlayer.Services
 			}
 		}
 
-		public string ReadTextFromTxt(string txtPath)
+		public static string ReadTextFromTxt(string txtPath)
 		{
 			using(var streamReader = new StreamReader(txtPath))
 			{
@@ -120,7 +120,7 @@ namespace AsciiPlayer.Services
 			}
 		}
 
-		public int GetIntervalBetweenFrames(string vidPath)
+		public static int GetIntervalBetweenFrames(string vidPath)
 		{
 			VideoCapture videoCapture = new VideoCapture(vidPath);
 			double fps = videoCapture.Fps;
@@ -128,7 +128,7 @@ namespace AsciiPlayer.Services
 			return (int)interval;
 		}
 
-		private void ResizeMat(Mat mat)
+		private static void ResizeMat(Mat mat)
 		{
 			int newWidth = mat.Width;
 			int newHeight = mat.Height;
@@ -161,7 +161,7 @@ namespace AsciiPlayer.Services
 			Cv2.Resize(mat, mat, new OpenCvSharp.Size(newWidth, newHeight), interpolation: InterpolationFlags.Lanczos4);
 		}
 
-		public void ExtractAudioFromVideo(string vidPath, string audioPath)
+		public static void ExtractAudioFromVideo(string vidPath, string audioPath)
 		{
 			string ffmpegPath = Path.Combine(Directory.GetCurrentDirectory(), @"ffmpeg\ffmpeg.exe");
 
