@@ -15,10 +15,6 @@ namespace AsciiPlayer.Services
 {
 	public static class FileProcessingService
 	{
-		//private static readonly Lazy<FileProcessingService> lazy = new(() => new());
-		//public static FileProcessingService Instance { get { return lazy.Value; } }
-		//private FileProcessingService() { }
-
 		private static string[] asciiChars = { "@", "B", "%", "8", "W", "M", "#", "*", "o", ":", ".", " ", " " };
 
 		public static void WriteVideoToTxtFiles(string vidPath, string tempTxtPath)
