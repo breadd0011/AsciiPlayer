@@ -89,8 +89,8 @@ namespace AsciiPlayer
 				timer.Dispose();
 				Console.ReadLine();		
 			}
-            else
-            {
+           		else
+            		{
 				frameIndex++;
 			}    
 		}
